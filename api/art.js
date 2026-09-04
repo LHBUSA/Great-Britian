@@ -6,7 +6,7 @@ function chunk(type,data){const tb=Buffer.from(type);const len=Buffer.alloc(4);l
 function png(w,h,rgba){const raw=Buffer.alloc((w*4+1)*h);for(let y=0;y<h;y++){const o=y*(w*4+1);raw[o]=0;Buffer.from(rgba.buffer,rgba.byteOffset+y*w*4,w*4).copy(raw,o+1)}const ih=Buffer.alloc(13);ih.writeUInt32BE(w,0);ih.writeUInt32BE(h,4);ih[8]=8;ih[9]=6;return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',ih),chunk('IDAT',zlib.deflateSync(raw,{level:7})),chunk('IEND',Buffer.alloc(0))])}
 function rng(seed){let s=seed>>>0;return()=>((s=(s*1664525+1013904223)>>>0)/4294967296)}
 function makeArt(name){
-  const sizes={graph:[1100,610],coverage:[900,620],identity:[720,400],transactions:[720,400],land:[720,400],geometry:[720,400],valuation:[720,400],developers:[720,400]};
+  const sizes={hero:[1500,820],graph:[1100,610],coverage:[900,620],identity:[720,400],transactions:[720,400],land:[720,400],geometry:[720,400],valuation:[720,400],developers:[720,400]};
   const [w,h]=sizes[name]||sizes.identity;
   const p=new Uint8Array(w*h*4);const ix=(x,y)=>(y*w+x)*4;
   const put=(x,y,r,g,b,a=255)=>{if(x<0||y<0||x>=w||y>=h)return;const i=ix(x|0,y|0),oa=p[i+3]/255,na=a/255,out=na+oa*(1-na);if(!out)return;p[i]=(r*na+p[i]*oa*(1-na))/out;p[i+1]=(g*na+p[i+1]*oa*(1-na))/out;p[i+2]=(b*na+p[i+2]*oa*(1-na))/out;p[i+3]=out*255};
@@ -16,10 +16,22 @@ function makeArt(name){
   const rand=rng([...name].reduce((a,c)=>a+c.charCodeAt(0),0)*7717+19);
   for(let y=0;y<h;y++)for(let x=0;x<w;x++){const t=y/h,rx=x/w,glow=Math.max(0,1-Math.hypot(rx-.72,t-.42)*1.4);put(x,y,5+Math.round(glow*10),16+Math.round(16*t+glow*18),27+Math.round(24*t+glow*24),255)}
   const grid=Math.max(44,Math.round(w/18));for(let x=0;x<w;x+=grid)line(x,0,x,h,[112,191,220],18,0);for(let y=0;y<h;y+=grid)line(0,y,w,y,[112,191,220],18,0);
-  for(let i=0;i<70;i++){const x=rand()*w,y=rand()*h,ww=18+rand()*70,hh=10+rand()*45;rect(x,y,ww,hh,[74,94,105],35+rand()*45);if(rand()>.66)line(x,y,x+ww,y+hh,[145,175,185],28,0)}
-  for(let i=0;i<5;i++){let x=-50,y=rand()*h;for(let j=1;j<7;j++){const nx=j*w/6+rand()*70-35,ny=y+(rand()-.5)*110;line(x,y,nx,ny,[130,151,160],45,2);line(x,y,nx,ny,[13,30,41],135,0);x=nx;y=ny}}
+  for(let i=0;i<(name==='hero'?125:70);i++){const x=rand()*w,y=rand()*h,ww=18+rand()*70,hh=10+rand()*45;rect(x,y,ww,hh,[74,94,105],28+rand()*42);if(rand()>.66)line(x,y,x+ww,y+hh,[145,175,185],24,0)}
+  for(let i=0;i<5;i++){let x=-50,y=rand()*h;for(let j=1;j<7;j++){const nx=j*w/6+rand()*70-35,ny=y+(rand()-.5)*110;line(x,y,nx,ny,[130,151,160],40,2);line(x,y,nx,ny,[13,30,41],125,0);x=nx;y=ny}}
   const mint=[121,241,194],cyan=[118,200,255],blue=[43,145,255],gold=[215,178,100];
-  if(name==='coverage'){
+  if(name==='hero'){
+    // River Thames inspired foreground.
+    for(let y=610;y<h;y++)for(let x=0;x<w;x++){const shimmer=(Math.sin(x*.028+y*.035)+1)*6;put(x,y,8+shimmer,31+shimmer,48+shimmer*1.8,220)}
+    for(let i=0;i<24;i++){const y=630+i*7;line(0,y,w,y,[95,170,205],10+(i%4)*5,0)}
+    // Westminster-like skyline silhouette on the right half.
+    const base=605;for(let i=0;i<14;i++){const x=760+i*52,ww=38+rand()*30,hh=95+rand()*150;rect(x,base-hh,ww,hh,[8,19,28],235);if(i%2===0){line(x,base-hh,x+ww/2,base-hh-26,[12,28,39],230,2);line(x+ww/2,base-hh-26,x+ww,base-hh,[12,28,39],230,2)}for(let wy=base-hh+24;wy<base-16;wy+=26)for(let wx=x+10;wx<x+ww-8;wx+=20)rect(wx,wy,5,9,gold,45)}
+    // Clock tower landmark abstraction.
+    const tx=1125,tw=84,th=365;rect(tx,base-th,tw,th,[11,26,36],248);rect(tx+12,base-th-42,tw-24,48,[11,26,36],250);line(tx+12,base-th-42,tx+tw/2,base-th-120,[11,26,36],250,5);line(tx+tw/2,base-th-120,tx+tw-12,base-th-42,[11,26,36],250,5);circle(tx+tw/2,base-th+74,28,gold,80);circle(tx+tw/2,base-th+74,21,[16,31,39],245);line(tx+tw/2,base-th+74,tx+tw/2+10,base-th+63,gold,210,1);line(tx+tw/2,base-th+74,tx+tw/2-4,base-th+56,gold,210,1);
+    // Property graph overlay.
+    const nodes=[[855,250],[1015,185],[1195,255],[1340,170],[1285,410],[1020,450],[1410,360]];for(let i=1;i<nodes.length;i++)line(...nodes[i-1],...nodes[i],i%2?mint:cyan,105,1);[[0,5],[2,5],[2,4],[4,6]].forEach(([a,b])=>line(...nodes[a],...nodes[b],mint,70,1));for(const [x,y] of nodes){circle(x,y,15,mint,32);circle(x,y,5,mint,235)}
+    // Left side remains deliberately quiet for headline legibility.
+    for(let x=0;x<740;x++)for(let y=0;y<h;y++)put(x,y,2,10,17,Math.round(120*(1-x/740)));
+  } else if(name==='coverage'){
     const pts=[[345,38],[390,62],[380,92],[410,125],[392,155],[428,185],[410,225],[445,260],[424,300],[455,337],[425,372],[440,420],[405,445],[390,490],[350,505],[322,548],[286,532],[297,492],[262,470],[270,430],[245,405],[260,365],[230,340],[250,305],[236,270],[260,236],[250,205],[278,180],[268,146],[300,125],[290,93],[315,75],[305,52]];
     for(let y=30;y<560;y++)for(let x=220;x<470;x++){let inside=false;for(let i=0,j=pts.length-1;i<pts.length;j=i++){const [xi,yi]=pts[i],[xj,yj]=pts[j];if(((yi>y)!=(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))inside=!inside}if(inside)put(x,y,96,176,226,118)}
     for(const [x,y] of [[340,125],[355,245],[350,350],[325,455]]){circle(x,y,24,mint,55);circle(x,y,8,mint,240)}
@@ -38,4 +50,4 @@ function makeArt(name){
   }
   return png(w,h,p)
 }
-export default function handler(req,res){if(req.method!=='GET')return res.status(405).json({error:'method_not_allowed'});const name=String(req.query?.name||'identity');const allowed=new Set(['graph','coverage','identity','transactions','land','geometry','valuation','developers']);if(!allowed.has(name))return res.status(404).end();const body=makeArt(name);res.setHeader('Content-Type','image/png');res.setHeader('Cache-Control','public, max-age=31536000, immutable');res.setHeader('CDN-Cache-Control','public, s-maxage=31536000, stale-while-revalidate=86400');res.status(200).end(body)}
+export default function handler(req,res){if(req.method!=='GET')return res.status(405).json({error:'method_not_allowed'});const requestUrl=new URL(req.url||'/api/art','https://gb.proptechusa.ai');const name=requestUrl.searchParams.get('name')||'identity';const allowed=new Set(['hero','graph','coverage','identity','transactions','land','geometry','valuation','developers']);if(!allowed.has(name))return res.status(404).end();const body=makeArt(name);res.setHeader('Content-Type','image/png');res.setHeader('Cache-Control','public, max-age=31536000, immutable');res.setHeader('CDN-Cache-Control','public, s-maxage=31536000, stale-while-revalidate=86400');res.status(200).end(body)}
