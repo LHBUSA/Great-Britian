@@ -1,4 +1,2 @@
-import './site.css';
-import './upgrade.css';
-import './site';
-import './upgrade';
+import './worldclass.css';
+import './worldclass';
