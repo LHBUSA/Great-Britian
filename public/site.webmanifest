@@ -1,0 +1,11 @@
+{
+  "name": "PropData Great Britain",
+  "short_name": "PropData GB",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07101a",
+  "theme_color": "#07101a",
+  "icons": [
+    {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}
