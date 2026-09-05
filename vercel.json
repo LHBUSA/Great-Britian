@@ -4,7 +4,7 @@
   "rewrites": [
     {"source": "/docs", "destination": "/docs/index.html"},
     {"source": "/workspace", "destination": "/workspace/index.html"},
-    {"source": "/images/property-graph.webp", "destination": "/api/art?name=graph"}
+    {"source": "/images/property-graph.webp", "destination": "/api/art?name=graph&v=3"}
   ],
   "headers": [
     {
@@ -25,13 +25,13 @@
     {
       "source": "/api/art",
       "headers": [
-        {"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}
+        {"key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400"}
       ]
     },
     {
       "source": "/api/hero",
       "headers": [
-        {"key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800"}
+        {"key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400"}
       ]
     }
   ]
