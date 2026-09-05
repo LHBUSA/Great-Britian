@@ -1,8 +1,36 @@
 {
   "name": "PropData Great Britain",
   "short_name": "PropData GB",
+  "description": "UPRN-first Great Britain property intelligence with source-aware OS and deterministic HMLR enrichment.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#06111b",
-  "theme_color": "#06111b"
+  "background_color": "#050e16",
+  "theme_color": "#07131d",
+  "icons": [
+    {
+      "src": "/api/icon?size=192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/api/icon?size=512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "API Docs",
+      "short_name": "Docs",
+      "url": "/docs"
+    },
+    {
+      "name": "API Workspace",
+      "short_name": "Workspace",
+      "url": "/workspace"
+    }
+  ]
 }
