@@ -4,6 +4,7 @@
   "rewrites": [
     {"source": "/docs", "destination": "/docs/index.html"},
     {"source": "/workspace", "destination": "/workspace/index.html"},
+    {"source": "/favicon.ico", "destination": "/api/icon?size=32"},
     {"source": "/images/property-graph.webp", "destination": "/api/art?name=graph&v=3"}
   ],
   "headers": [
