@@ -1,0 +1,17 @@
+.brand-mark,.brandmark{
+  width:36px!important;
+  height:39px!important;
+  flex:0 0 36px!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  background:url('/favicon.svg') center/contain no-repeat!important;
+  color:transparent!important;
+  font-size:0!important;
+  letter-spacing:0!important;
+  box-shadow:none!important;
+}
+.brandmark>span{display:none!important}
+.brand-mark{display:block!important}
+.footer-platform-brand .brand-mark,.footer-v2-brand .brand-mark{width:39px!important;height:42px!important;flex-basis:39px!important}
+@media(max-width:780px){.brand-mark,.brandmark{width:32px!important;height:35px!important;flex-basis:32px!important}}
