@@ -1,9 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 68" role="img" aria-label="PropData Great Britain" fill="none">
-  <path d="M32 2 58 11v18c0 17-10.1 29.7-26 36.6C16.1 58.7 6 46 6 29V11Z" fill="#fff" stroke="#dce7f4" stroke-width="2" stroke-linejoin="round"/>
-  <path d="M32 6 54 13.6v15c0 14.2-7.8 24.9-22 31.6-14.2-6.7-22-17.4-22-31.6v-15Z" fill="#123f86" stroke="#0a2548" stroke-width="2.4" stroke-linejoin="round"/>
-  <path d="M32 10.2 50 16.4v12.2c0 11.6-6 20.5-18 26.5-12-6-18-14.9-18-26.5V16.4Z" stroke="#a9c9ff" stroke-width="1.4" stroke-linejoin="round" opacity=".92"/>
-  <path d="m18 23 14-6 14 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="18" y="34" width="6" height="12" rx="1.6" fill="#ef3340"/>
-  <rect x="29" y="27" width="6" height="19" rx="1.6" fill="#fff"/>
-  <rect x="40" y="20" width="6" height="26" rx="1.6" fill="#7db5ff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 78" role="img" aria-label="PropData" fill="none">
+  <defs>
+    <linearGradient id="shield" x1="12" y1="8" x2="58" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D64B6"/>
+      <stop offset="1" stop-color="#123B7A"/>
+    </linearGradient>
+  </defs>
+  <path d="M36 3 65 13v21c0 18.8-11.3 32.9-29 40.5C18.3 66.9 7 52.8 7 34V13L36 3Z" fill="#F8FBFF" stroke="#D7E6F8" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M36 8 60 16.3V34c0 15.7-8.8 27.3-24 34.2C20.8 61.3 12 49.7 12 34V16.3L36 8Z" fill="url(#shield)" stroke="#0A2B59" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M36 12.2 55.6 19v14.7c0 12.7-6.7 22.3-19.6 28.4-12.9-6.1-19.6-15.7-19.6-28.4V19L36 12.2Z" stroke="#9FC6FF" stroke-width="1.4" stroke-linejoin="round" opacity=".95"/>
+  <path d="m21 28 15-7 15 7" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 39h6v13h-6z" rx="1" fill="#EF3340"/>
+  <path d="M33 32h6v20h-6z" rx="1" fill="#FFFFFF"/>
+  <path d="M42 25h6v27h-6z" rx="1" fill="#76B6FF"/>
 </svg>
