@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PropData Great Britain">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#050e16"/><stop offset="1" stop-color="#0b2231"/></linearGradient>
+    <linearGradient id="parcel" x1="0" x2="1"><stop stop-color="#7cf6c5"/><stop offset="1" stop-color="#7fc7ff"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <rect x="8" y="8" width="48" height="48" rx="12" fill="#071b28" stroke="#7cf6c5" stroke-opacity=".72" stroke-width="2"/>
+  <path d="M32 16 48 32 32 48 16 32Z" fill="url(#parcel)"/>
+  <path d="M32 25 39 32 32 39 25 32Z" fill="#071b28"/>
+  <path d="M15 22h8M15 22v8M49 42h-8M49 42v-8" fill="none" stroke="#7fc7ff" stroke-width="2" stroke-linecap="round"/>
+</svg>
