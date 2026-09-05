@@ -2,6 +2,7 @@ import './worldclass.css';
 import './gb-sales.css';
 import './brand-network.css';
 import './product-demo.css';
+import './hero-polish.css';
 import './worldclass';
 import './gb-sales';
 import './gb-positioning-v2';
