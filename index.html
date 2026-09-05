@@ -2,28 +2,150 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Great Britain Property Intelligence API | PropData GB</title>
-  <meta name="description" content="Great Britain property identity from OS Open UPRN with deterministic HMLR transaction intelligence and registered-extent enrichment for England and Wales. Docs, API workspace and live GBP Stripe access.">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+
+  <title>PropData Great Britain | UPRN Property Intelligence API</title>
+  <meta name="description" content="Great Britain property intelligence anchored to official UPRNs, with OS linked identifiers and deterministic HMLR transaction and INSPIRE enrichment for England and Wales.">
+  <meta name="author" content="PropTechUSA.ai">
+  <meta name="publisher" content="PropTechUSA.ai">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <meta name="theme-color" content="#06111b">
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#07131d">
+  <meta name="color-scheme" content="dark light">
   <meta name="application-name" content="PropData Great Britain">
+  <meta name="apple-mobile-web-app-title" content="PropData GB">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-TileColor" content="#07131d">
+  <meta name="format-detection" content="telephone=no">
+
   <link rel="canonical" href="https://gb.proptechusa.ai/">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/api/icon?size=32">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/api/icon?size=180">
+  <link rel="mask-icon" href="/mask-icon.svg" color="#07131d">
+
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:locale:alternate" content="cy_GB">
   <meta property="og:site_name" content="PropData Great Britain">
-  <meta property="og:title" content="Great Britain Property Intelligence. UPRN in. Property graph out.">
-  <meta property="og:description" content="GB-wide UPRN identity with deterministic HMLR transaction intelligence, registered extents, linked identifiers, docs, API workspace and live GBP access.">
+  <meta property="og:title" content="Great Britain Property Intelligence | PropData GB">
+  <meta property="og:description" content="UPRN-first Great Britain property identity with source-aware OS identifiers and deterministic HMLR transaction + INSPIRE enrichment for England and Wales.">
   <meta property="og:url" content="https://gb.proptechusa.ai/">
-  <meta property="og:image" content="https://gb.proptechusa.ai/api/hero">
-  <meta property="og:image:alt" content="PropData Great Britain property intelligence">
+  <meta property="og:image" content="https://gb.proptechusa.ai/api/og?v=20260905a">
+  <meta property="og:image:secure_url" content="https://gb.proptechusa.ai/api/og?v=20260905a">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PropData Great Britain — UPRN-first property intelligence with OS and HMLR enrichment">
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PropData Great Britain Property Intelligence">
-  <meta name="twitter:description" content="UPRN-first property identity and deterministic HMLR intelligence through one API.">
-  <meta name="twitter:image" content="https://gb.proptechusa.ai/api/hero">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","url":"https://gb.proptechusa.ai/","name":"PropData Great Britain","description":"Great Britain property intelligence infrastructure for developers.","inLanguage":["en-GB","cy-GB"]},{"@type":"Organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai/","email":"sales@proptechusa.ai","brand":{"@type":"Brand","name":"PropData"}},{"@type":["SoftwareApplication","Product"],"name":"PropData Great Britain Property Intelligence API","url":"https://gb.proptechusa.ai/","applicationCategory":"DeveloperApplication","operatingSystem":"Web API","areaServed":{"@type":"Country","name":"United Kingdom"},"description":"UPRN-first Great Britain property identity with HMLR transaction and registered-extent enrichment for England and Wales where deterministic links are available.","offers":[{"@type":"Offer","name":"Developer","price":"79","priceCurrency":"GBP","url":"https://buy.stripe.com/4gM8wP1rUfKS4pv5sn7wA0g"},{"@type":"Offer","name":"Builder","price":"249","priceCurrency":"GBP","url":"https://buy.stripe.com/8x29ATgmOaqy4pvg717wA0h"},{"@type":"Offer","name":"Scale","price":"699","priceCurrency":"GBP","url":"https://buy.stripe.com/00w5kDfiK1U21djaMH7wA0i"}]}]}</script>
+  <meta name="twitter:title" content="Great Britain Property Intelligence | PropData GB">
+  <meta name="twitter:description" content="Official UPRN identity first. Deterministic OS + HMLR enrichment second. One source-aware Great Britain property graph.">
+  <meta name="twitter:image" content="https://gb.proptechusa.ai/api/og?v=20260905a">
+  <meta name="twitter:image:alt" content="PropData Great Britain property intelligence API">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://proptechusa.ai/#organization",
+        "name": "PropTechUSA.ai",
+        "url": "https://proptechusa.ai/",
+        "email": "sales@proptechusa.ai",
+        "brand": {"@id": "https://gb.proptechusa.ai/#brand"}
+      },
+      {
+        "@type": "Brand",
+        "@id": "https://gb.proptechusa.ai/#brand",
+        "name": "PropData",
+        "url": "https://propdata.proptechusa.ai/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://gb.proptechusa.ai/#website",
+        "url": "https://gb.proptechusa.ai/",
+        "name": "PropData Great Britain",
+        "description": "Great Britain property intelligence infrastructure for developers and software teams.",
+        "publisher": {"@id": "https://proptechusa.ai/#organization"},
+        "inLanguage": ["en-GB", "cy-GB"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://gb.proptechusa.ai/#webpage",
+        "url": "https://gb.proptechusa.ai/",
+        "name": "PropData Great Britain | UPRN Property Intelligence API",
+        "description": "Great Britain property intelligence anchored to official UPRNs, with source-aware OS identifiers and deterministic HMLR enrichment.",
+        "isPartOf": {"@id": "https://gb.proptechusa.ai/#website"},
+        "about": {"@id": "https://gb.proptechusa.ai/#product"},
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://gb.proptechusa.ai/api/og?v=20260905a",
+          "width": 1200,
+          "height": 630
+        },
+        "dateModified": "2026-09-05",
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": ["SoftwareApplication", "Product"],
+        "@id": "https://gb.proptechusa.ai/#product",
+        "name": "PropData Great Britain Property Intelligence API",
+        "alternateName": "PropData GB",
+        "url": "https://gb.proptechusa.ai/",
+        "brand": {"@id": "https://gb.proptechusa.ai/#brand"},
+        "manufacturer": {"@id": "https://proptechusa.ai/#organization"},
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Property Intelligence API",
+        "operatingSystem": "Web API",
+        "description": "UPRN-first Great Britain property identity with OS linked identifiers and deterministic HM Land Registry transaction and registered-extent enrichment for England and Wales where official links exist.",
+        "areaServed": {"@type": "Country", "name": "United Kingdom"},
+        "featureList": [
+          "Great Britain UPRN property identity",
+          "Official coordinates and linked OS identifiers",
+          "HM Land Registry transaction enrichment where deterministically linked",
+          "INSPIRE registered-extent context where linked",
+          "Explicit coverage states and source provenance",
+          "REST API and developer workspace"
+        ],
+        "image": "https://gb.proptechusa.ai/api/og?v=20260905a",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Developer",
+            "price": "79",
+            "priceCurrency": "GBP",
+            "url": "https://buy.stripe.com/4gM8wP1rUfKS4pv5sn7wA0g",
+            "availability": "https://schema.org/InStock",
+            "seller": {"@id": "https://proptechusa.ai/#organization"}
+          },
+          {
+            "@type": "Offer",
+            "name": "Builder",
+            "price": "249",
+            "priceCurrency": "GBP",
+            "url": "https://buy.stripe.com/8x29ATgmOaqy4pvg717wA0h",
+            "availability": "https://schema.org/InStock",
+            "seller": {"@id": "https://proptechusa.ai/#organization"}
+          },
+          {
+            "@type": "Offer",
+            "name": "Scale",
+            "price": "699",
+            "priceCurrency": "GBP",
+            "url": "https://buy.stripe.com/00w5kDfiK1U21djaMH7wA0i",
+            "availability": "https://schema.org/InStock",
+            "seller": {"@id": "https://proptechusa.ai/#organization"}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="site-root"></div>
