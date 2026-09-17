@@ -7,3 +7,4 @@ import './worldclass';
 import './gb-sales';
 import './gb-positioning-v2';
 import './product-demo';
+import './footer-contact';
